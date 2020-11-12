@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playing with Animation Stuff</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<style type="text/css">
+
+h1 {
+    filter: blur(10px);
+    transition: filter 2s, color 2s;
+}
+
+h1:hover{
+    color: #ffcc00;
+    filter: blur(0px);
+}
+
+#twist {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #cc00ff;
+    box-shadow: 0px 0px 60px grey;
+    transition: transform 3s, box-shadow 3s;
+}
+
+#twist:hover {
+    transform: rotate(120deg) scale(0.5);
+    box-shadow: 0px 0px 30px grey;
+}
+
+h2 {
+    text-align: center;
+    font-size: 4vw;
+}
+</style>
+
+</head>
+<body>
+<h1>Hello world!</h1>
+<section id="twist"></section>
+<h2 class="animate__animated">Bring it around town!</h2>
+
+<script type="text/javascript">
+let flipper = document.querySelector("h2");
+
+flipper.onmouseenter = function() {
+    flipper.classList.toggle("animate__tada");
+}
+
+flipper.onmouseleave = function() {
+    flipper.classList.toggle("animate__tada");
+}
+
+
+</script>
+</body>
+
+</html>

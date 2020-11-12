@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shaking Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<style type="text/css">
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #00ffcc;
+}
+
+#container {
+    background-color: white;
+    width: 70vw;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.check_in, #submit {
+    width: 100%;
+    height: 32px;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+</style>
+</head>
+<body>
+<main id="container">
+<form>
+<fieldset>
+<legend>Contact Information</legend>
+<input type="text" class="check_in animate__animated" name="fname" id="fname" placeholder="First Name" /> 
+<input type="text" class="check_in animate__animated" name="lname" id="lname" placeholder="Last Name" /> 
+<input type="text" class="check_in animate__animated" name="addy" id="addy" placeholder="Address" /> 
+<input type="text" class="check_in animate__animated" name="phone" id="phone" placeholder="Phone Number" />
+<button id="submit">Click to Send</button>
+
+
+</fieldset>
+</form>
+
+
+</main>
+
+<script type="text/javascript">
+let b = document.querySelector("#submit");
+let inputs = document.querySelectorAll(".check_in");
+
+function toggleShake(x) {
+    inputs[x].classList.toggle("animate__shakeX");
+}
+
+b.onclick = function() {
+    for(var i = 0; i < inputs.length; i++){
+        if(inputs[i].value.length == 0) {
+            toggleShake(i);
+            setTimeout(toggleShake.bind(null, i), 2000);
+        }
+    }
+    return false;
+}
+
+
+</script>
+</body>
+
+</html>
